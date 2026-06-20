@@ -1,0 +1,16 @@
+# Local/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+
+# Build/cache artifacts
+.cache/
+dist/
+node_modules/
+
+# Raw mailbox artifacts must never enter this public repository.
+*.pst
+*.ost
+*.msg
+*.eml

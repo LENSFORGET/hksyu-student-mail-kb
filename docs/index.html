@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HKSYU Mail Knowledge Base</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="appShell">
+      <aside class="sidebar" aria-label="导航">
+        <div class="brand">
+          <div class="mark">HK</div>
+          <div>
+            <h1>HKSYU Mail KB</h1>
+            <p>Outlook-like public browser</p>
+          </div>
+        </div>
+        <label class="searchLabel" for="searchInput">搜索</label>
+        <input id="searchInput" class="search" type="search" placeholder="Registry, Moodle, Career..." />
+        <div class="filterGroup">
+          <label>月份<select id="monthFilter"></select></label>
+          <label>类别<select id="categoryFilter"></select></label>
+          <label>部门<select id="departmentFilter"></select></label>
+        </div>
+        <nav class="folderList" id="topicList" aria-label="主题"></nav>
+      </aside>
+      <section class="messageList" aria-label="事件卡列表">
+        <header class="listHeader">
+          <div>
+            <h2>事件卡</h2>
+            <p id="resultMeta">Loading...</p>
+          </div>
+          <a class="repoLink" href="https://github.com/LENSFORGET/hksyu-student-mail-kb">GitHub</a>
+        </header>
+        <div id="cards" class="cards"></div>
+      </section>
+      <article class="readingPane" id="readingPane" aria-label="阅读窗格">
+        <div class="emptyState">
+          <h2>选择一张事件卡</h2>
+          <p>左侧筛选，中间选择，右侧阅读。公开版只展示匿名化后的知识摘要。</p>
+        </div>
+      </article>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

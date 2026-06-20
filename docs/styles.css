@@ -1,0 +1,46 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; font-family: "Segoe UI", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; color: #172033; background: #f3f6fb; }
+.appShell { min-height: 100vh; display: grid; grid-template-columns: 280px minmax(360px, 460px) minmax(0, 1fr); }
+.sidebar { background: #f7f9fd; border-right: 1px solid #d9e1ef; padding: 18px 14px; overflow: auto; }
+.brand { display: flex; gap: 10px; align-items: center; margin-bottom: 22px; }
+.mark { width: 36px; height: 36px; border-radius: 8px; display: grid; place-items: center; background: #2457a7; color: white; font-weight: 700; }
+h1, h2, h3, p { margin: 0; }
+.brand h1 { font-size: 16px; line-height: 1.2; }
+.brand p, .listHeader p, .meta { color: #69758a; font-size: 12px; }
+.searchLabel { display: block; font-size: 12px; color: #526178; margin-bottom: 6px; }
+.search, select { width: 100%; height: 36px; border: 1px solid #cfd8e7; border-radius: 6px; background: white; padding: 0 10px; font: inherit; font-size: 13px; }
+.filterGroup { display: grid; gap: 10px; margin: 16px 0 18px; }
+.filterGroup label { display: grid; gap: 5px; color: #526178; font-size: 12px; }
+.folderList { display: grid; gap: 4px; }
+.folderButton { border: 0; background: transparent; text-align: left; min-height: 34px; padding: 8px 10px; border-radius: 6px; color: #263248; cursor: pointer; font: inherit; font-size: 13px; }
+.folderButton.isActive, .folderButton:hover { background: #e6edf8; }
+.messageList { background: white; border-right: 1px solid #d9e1ef; min-width: 0; overflow: auto; }
+.listHeader { height: 74px; padding: 16px; border-bottom: 1px solid #e3e9f3; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.listHeader h2 { font-size: 18px; }
+.repoLink { color: #2457a7; font-size: 13px; text-decoration: none; }
+.cards { display: grid; }
+.card { border: 0; border-bottom: 1px solid #edf1f7; padding: 14px 16px; background: white; text-align: left; cursor: pointer; }
+.card:hover, .card.isSelected { background: #f2f6fc; }
+.card h3 { font-size: 14px; line-height: 1.35; margin-bottom: 6px; color: #172033; }
+.card p { font-size: 12px; color: #637087; line-height: 1.45; }
+.pillRow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.pill { font-size: 11px; color: #315179; background: #e8f0fb; border: 1px solid #d5e2f4; padding: 3px 7px; border-radius: 999px; }
+.readingPane { min-width: 0; padding: 28px 34px; overflow: auto; background: #fbfcff; }
+.readingPane h2 { font-size: 26px; line-height: 1.2; margin-bottom: 12px; }
+.summary { color: #344055; line-height: 1.7; margin-bottom: 18px; }
+.detailGrid { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px 16px; border-top: 1px solid #dfe6f1; border-bottom: 1px solid #dfe6f1; padding: 16px 0; margin: 18px 0; }
+.detailGrid dt { color: #69758a; font-size: 13px; }
+.detailGrid dd { margin: 0; color: #1f2a3d; font-size: 13px; }
+.links { display: grid; gap: 8px; margin-top: 10px; }
+.links a, .markdownLink { color: #2457a7; text-decoration: none; overflow-wrap: anywhere; }
+.emptyState { max-width: 520px; margin: 12vh auto 0; color: #526178; }
+@media (max-width: 980px) {
+  .appShell { grid-template-columns: 240px minmax(0, 1fr); }
+  .readingPane { grid-column: 1 / -1; border-top: 1px solid #d9e1ef; }
+}
+@media (max-width: 720px) {
+  .appShell { display: block; }
+  .sidebar { border-right: 0; border-bottom: 1px solid #d9e1ef; }
+  .messageList { border-right: 0; }
+  .readingPane { padding: 22px 18px; }
+}
