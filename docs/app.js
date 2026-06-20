@@ -319,6 +319,11 @@ function localizedSearchBlob(event) {
   ].join(" ").toLowerCase();
 }
 
+function githubMarkdownUrl(markdownPath) {
+  const normalized = String(markdownPath || "").replace(/^\/+/, "");
+  return `https://github.com/LENSFORGET/hksyu-student-mail-kb/blob/main/${encodeURI(normalized)}`;
+}
+
 function displaySummary(event) {
   if (state.lang === "en") {
     const months = (event.months || []).map(monthLabelFor).join(", ") || "Typical";
@@ -601,7 +606,7 @@ function renderReading(event) {
       <dt>${esc(t("commonTiming"))}</dt><dd>${esc(localizeTiming(event.common_timing))}</dd>
       <dt>${esc(t("sourceCount"))}</dt><dd>${esc(event.source_count)}</dd>
       <dt>${esc(t("confidence"))}</dt><dd>${esc(event.confidence)}</dd>
-      <dt>${esc(t("markdown"))}</dt><dd><a class="markdownLink" href="../${esc(event.markdown_path)}">${esc(event.markdown_path)}</a></dd>
+      <dt>${esc(t("markdown"))}</dt><dd><a class="markdownLink" href="${esc(githubMarkdownUrl(event.markdown_path))}" target="_blank" rel="noreferrer">${esc(event.markdown_path)}</a></dd>
       <dt>${esc(t("publicSources"))}</dt><dd>${links}</dd>
     </dl>
     <p class="meta">${esc(t("cardMeta"))}</p>
