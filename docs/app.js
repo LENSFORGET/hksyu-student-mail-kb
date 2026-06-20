@@ -519,7 +519,16 @@ function resetFilters() {
   $("forecastBtn").classList.remove("isActive");
   updateTopicButtons();
   updateUrl();
-  render();
+  render({ resetReading: true });
+}
+
+function resetReadingPosition(shouldBringIntoView = false) {
+  const pane = $("readingPane");
+  pane.scrollTop = 0;
+  if (shouldBringIntoView && window.matchMedia("(max-width: 720px)").matches) {
+    const top = pane.getBoundingClientRect().top + window.scrollY - 8;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
 }
 
 function bindControls() {
@@ -539,7 +548,7 @@ function bindControls() {
     state.selectedId = null;
     updateUrl();
     $("forecastBtn").classList.toggle("isActive", state.forecastMode);
-    render();
+    render({ resetReading: true });
   });
   $("languageSelect").addEventListener("change", (event) => {
     const nextLang = normalizeLang(event.target.value);
@@ -583,8 +592,9 @@ function filteredEvents() {
   });
 }
 
-function render() {
+function render(options = {}) {
   const events = filteredEvents();
+  const previousSelectedId = state.selectedId;
   if (!events.some((event) => event.event_id === state.selectedId)) state.selectedId = events[0]?.event_id || null;
   if (state.forecastMode) {
     const { start, end } = forecastWindow();
@@ -605,9 +615,13 @@ function render() {
     const card = event.target.closest(".card[data-id]");
     if (!card) return;
     state.selectedId = card.dataset.id;
-    render();
+    render({ resetReading: true, bringReadingIntoView: true });
   };
-  renderReading(events.find((event) => event.event_id === state.selectedId) || events[0]);
+  const selectedEvent = events.find((event) => event.event_id === state.selectedId) || events[0];
+  renderReading(selectedEvent);
+  if (options.resetReading || (selectedEvent && selectedEvent.event_id !== previousSelectedId)) {
+    resetReadingPosition(Boolean(options.bringReadingIntoView));
+  }
 }
 
 function renderReading(event) {
