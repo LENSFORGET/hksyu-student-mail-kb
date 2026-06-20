@@ -4,9 +4,10 @@
 
 ## 常见月份
 
-暂无足够公开事件。
+05月(1)
 
 ## 事件卡
 
 | 月份 | 类别 | 部门 | 事件 | 行动 |
 | --- | --- | --- | --- | --- |
+| 05月 | 考試與評估 | Department of Applied Data Science / ADS | Reminder: 「應屆畢業生資料表」提交事宜 "Information Sheet for Final Year Students" submission | 注意截止日期/盡快提交 |
