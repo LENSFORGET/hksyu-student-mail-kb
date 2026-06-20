@@ -29,6 +29,16 @@ function topicFor(event) {
 }
 
 function buildFilters() {
+  $("yearFilter").innerHTML = optionList(unique(state.events.flatMap((e) => {
+    const range = String(e.year_range || "");
+    const match = range.match(/^(\d{4})-(\d{4})$/);
+    if (!match) return [];
+    const start = Number(match[1]);
+    const end = Number(match[2]);
+    const years = [];
+    for (let y = start; y <= end; y += 1) years.push(String(y));
+    return years;
+  })), "全部年份");
   $("monthFilter").innerHTML = optionList(unique(state.events.flatMap((e) => e.months.map((m) => `${String(m).padStart(2, "0")}月`))), "全部月份");
   $("categoryFilter").innerHTML = optionList(unique(state.events.map((e) => e.category)), "全部类别");
   $("departmentFilter").innerHTML = optionList(unique(state.events.map((e) => e.department)), "全部部门");
@@ -41,15 +51,25 @@ function buildFilters() {
     document.querySelectorAll(".folderButton").forEach((node) => node.classList.toggle("isActive", node === button));
     render();
   });
-  ["searchInput", "monthFilter", "categoryFilter", "departmentFilter"].forEach((id) => $(id).addEventListener("input", render));
+  ["searchInput", "yearFilter", "monthFilter", "categoryFilter", "departmentFilter"].forEach((id) => $(id).addEventListener("input", render));
 }
 
 function filteredEvents() {
   const q = $("searchInput").value.trim().toLowerCase();
+  const year = $("yearFilter").value;
   const month = $("monthFilter").value;
   const category = $("categoryFilter").value;
   const department = $("departmentFilter").value;
   return state.events.filter((event) => {
+    if (year !== "all") {
+      const range = String(event.year_range || "");
+      const match = range.match(/^(\d{4})-(\d{4})$/);
+      if (!match) return false;
+      const start = Number(match[1]);
+      const end = Number(match[2]);
+      const selectedYear = Number(year);
+      if (selectedYear < start || selectedYear > end) return false;
+    }
     if (month !== "all" && !event.months.map((m) => `${String(m).padStart(2, "0")}月`).includes(month)) return false;
     if (category !== "all" && event.category !== category) return false;
     if (department !== "all" && event.department !== department) return false;
