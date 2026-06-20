@@ -525,9 +525,13 @@ function resetFilters() {
 function resetReadingPosition(shouldBringIntoView = false) {
   const pane = $("readingPane");
   pane.scrollTop = 0;
-  if (shouldBringIntoView && window.matchMedia("(max-width: 720px)").matches) {
+  pane.classList.remove("isFocused");
+  void pane.offsetWidth;
+  pane.classList.add("isFocused");
+  if (shouldBringIntoView) {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const top = pane.getBoundingClientRect().top + window.scrollY - 8;
-    window.scrollTo({ top, behavior: "smooth" });
+    window.scrollTo({ top: Math.max(0, top), behavior: prefersReducedMotion ? "auto" : "smooth" });
   }
 }
 
