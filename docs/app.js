@@ -1,4 +1,4 @@
-const state = { events: [], selectedId: null, topic: "all" };
+const state = { events: [], selectedId: null, topic: "all", forecastMode: false };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[c]));
 
@@ -6,6 +6,7 @@ async function loadEvents() {
   const res = await fetch("./data/events.public.jsonl");
   const text = await res.text();
   state.events = text.trim().split(/\n+/).filter(Boolean).map((line) => JSON.parse(line));
+  state.forecastMode = new URLSearchParams(window.location.search).get("view") === "forecast" || window.location.hash === "#forecast";
   buildFilters();
   render();
 }
@@ -16,6 +17,65 @@ function unique(values) {
 
 function optionList(values, allLabel) {
   return [`<option value="all">${allLabel}</option>`].concat(values.map((v) => `<option value="${esc(v)}">${esc(v)}</option>`)).join("");
+}
+
+function addOneMonth(date) {
+  const next = new Date(date);
+  const originalDay = next.getDate();
+  next.setMonth(next.getMonth() + 1);
+  if (next.getDate() < originalDay) next.setDate(0);
+  return next;
+}
+
+function formatDate(date) {
+  return `${date.getFullYear()}年${String(date.getMonth() + 1).padStart(2, "0")}月${String(date.getDate()).padStart(2, "0")}日`;
+}
+
+function forecastWindow() {
+  const start = new Date();
+  start.setHours(0, 0, 0, 0);
+  const end = addOneMonth(start);
+  return { start, end };
+}
+
+function extractLikelyDays(event) {
+  const timing = String(event.common_timing || "");
+  const days = new Set();
+  const commonMatch = timing.match(/常[見见]日[：:]\s*([0-9,，、\s]+)/);
+  if (commonMatch) {
+    for (const raw of commonMatch[1].match(/\d{1,2}/g) || []) {
+      const day = Number(raw);
+      if (day >= 1 && day <= 31) days.add(day);
+    }
+  }
+  const westernDate = timing.match(/\b(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b/i);
+  if (westernDate) {
+    const day = Number(westernDate[1]);
+    if (day >= 1 && day <= 31) days.add(day);
+  }
+  const zhDate = timing.match(/(?:\d{1,2}月)?\s*(\d{1,2})[日号號]/);
+  if (zhDate) {
+    const day = Number(zhDate[1]);
+    if (day >= 1 && day <= 31) days.add(day);
+  }
+  return Array.from(days).sort((a, b) => a - b);
+}
+
+function eventMatchesForecast(event) {
+  const { start, end } = forecastWindow();
+  const startMonth = start.getMonth() + 1;
+  const endMonth = end.getMonth() + 1;
+  const startDay = start.getDate();
+  const endDay = end.getDate();
+  const days = extractLikelyDays(event);
+  for (const month of event.months || []) {
+    if (month !== startMonth && month !== endMonth) continue;
+    if (!days.length) return true;
+    if (startMonth === endMonth && days.some((day) => day >= startDay && day <= endDay)) return true;
+    if (startMonth !== endMonth && month === startMonth && days.some((day) => day >= startDay)) return true;
+    if (startMonth !== endMonth && month === endMonth && days.some((day) => day <= endDay)) return true;
+  }
+  return false;
 }
 
 function topicFor(event) {
@@ -52,6 +112,15 @@ function buildFilters() {
     render();
   });
   ["searchInput", "yearFilter", "monthFilter", "categoryFilter", "departmentFilter"].forEach((id) => $(id).addEventListener("input", render));
+  $("forecastBtn").addEventListener("click", () => {
+    state.forecastMode = !state.forecastMode;
+    state.selectedId = null;
+    if (state.forecastMode) history.replaceState(null, "", "?view=forecast");
+    else history.replaceState(null, "", window.location.pathname);
+    $("forecastBtn").classList.toggle("isActive", state.forecastMode);
+    render();
+  });
+  $("forecastBtn").classList.toggle("isActive", state.forecastMode);
 }
 
 function filteredEvents() {
@@ -61,6 +130,7 @@ function filteredEvents() {
   const category = $("categoryFilter").value;
   const department = $("departmentFilter").value;
   return state.events.filter((event) => {
+    if (state.forecastMode && !eventMatchesForecast(event)) return false;
     if (year !== "all") {
       const range = String(event.year_range || "");
       const match = range.match(/^(\d{4})-(\d{4})$/);
@@ -84,7 +154,14 @@ function filteredEvents() {
 
 function render() {
   const events = filteredEvents();
-  $("resultMeta").textContent = `${events.length} cards · low-risk public summaries`;
+  if (state.forecastMode) {
+    const { start, end } = forecastWindow();
+    $("resultMeta").textContent = `${events.length} cards · ${formatDate(start)} 至 ${formatDate(end)} 可能相关`;
+    $("forecastHint").textContent = `正在显示 ${formatDate(start)} 至 ${formatDate(end)} 之间可能收到或需要留意的事项。`;
+  } else {
+    $("resultMeta").textContent = `${events.length} cards · low-risk public summaries`;
+    $("forecastHint").textContent = "按今天日期推算接下来一个月可能遇到的 HKSYU 事项。";
+  }
   if (!state.selectedId && events[0]) state.selectedId = events[0].event_id;
   $("cards").innerHTML = events.slice(0, 300).map((event) => `
     <button class="card ${event.event_id === state.selectedId ? "isSelected" : ""}" data-id="${esc(event.event_id)}">
