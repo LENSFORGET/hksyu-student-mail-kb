@@ -9,7 +9,8 @@ const I18N = {
     listAria: "事件卡列表",
     readingAria: "阅读窗格",
     browserSubtitle: "Outlook-like public browser",
-    languageLabel: "语言",
+    languageLabel: "界面语言",
+    languageHint: "切换界面语言，事件内容保留原文。",
     searchLabel: "搜索",
     searchPlaceholder: "Registry, Moodle, Career...",
     yearLabel: "年份",
@@ -60,7 +61,8 @@ const I18N = {
     listAria: "事件卡列表",
     readingAria: "閱讀窗格",
     browserSubtitle: "Outlook-like public browser",
-    languageLabel: "語言",
+    languageLabel: "介面語言",
+    languageHint: "切換介面語言，事件內容保留原文。",
     searchLabel: "搜尋",
     searchPlaceholder: "Registry, Moodle, Career...",
     yearLabel: "年份",
@@ -111,7 +113,8 @@ const I18N = {
     listAria: "Event card list",
     readingAria: "Reading pane",
     browserSubtitle: "Outlook-like public browser",
-    languageLabel: "Language",
+    languageLabel: "Interface language",
+    languageHint: "Switches the interface language. Event content stays in its original language.",
     searchLabel: "Search",
     searchPlaceholder: "Registry, Moodle, Career...",
     yearLabel: "Year",
@@ -206,11 +209,7 @@ function applyLanguage() {
   document.querySelectorAll("[data-i18n-aria]").forEach((node) => {
     node.setAttribute("aria-label", t(node.dataset.i18nAria));
   });
-  document.querySelectorAll(".langButton").forEach((button) => {
-    const active = button.dataset.lang === state.lang;
-    button.classList.toggle("isActive", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
+  $("languageSelect").value = state.lang;
   $("resultMeta").textContent = t("loadingText");
 }
 
@@ -366,17 +365,15 @@ function bindControls() {
     $("forecastBtn").classList.toggle("isActive", state.forecastMode);
     render();
   });
-  document.querySelectorAll(".langButton").forEach((button) => {
-    button.addEventListener("click", () => {
-      const nextLang = normalizeLang(button.dataset.lang);
-      if (nextLang === state.lang) return;
-      state.lang = nextLang;
-      localStorage.setItem("hksyu-kb-lang", state.lang);
-      applyLanguage();
-      buildFilters();
-      updateUrl();
-      render();
-    });
+  $("languageSelect").addEventListener("change", (event) => {
+    const nextLang = normalizeLang(event.target.value);
+    if (nextLang === state.lang) return;
+    state.lang = nextLang;
+    localStorage.setItem("hksyu-kb-lang", state.lang);
+    applyLanguage();
+    buildFilters();
+    updateUrl();
+    render();
   });
   $("forecastBtn").classList.toggle("isActive", state.forecastMode);
 }
