@@ -9,6 +9,7 @@ const I18N = {
     listAria: "事件卡列表",
     readingAria: "阅读窗格",
     resetAria: "重置筛选",
+    returnToList: "返回刚才的位置",
     browserSubtitle: "Outlook-like public browser",
     languageLabel: "界面语言",
     languageHint: "切换界面、筛选和标签语言；通知标题与摘要保留原文。",
@@ -62,6 +63,7 @@ const I18N = {
     listAria: "事件卡列表",
     readingAria: "閱讀窗格",
     resetAria: "重置篩選",
+    returnToList: "返回剛才的位置",
     browserSubtitle: "Outlook-like public browser",
     languageLabel: "介面語言",
     languageHint: "切換介面、篩選和標籤語言；通知標題與摘要保留原文。",
@@ -115,6 +117,7 @@ const I18N = {
     listAria: "Event card list",
     readingAria: "Reading pane",
     resetAria: "Reset filters",
+    returnToList: "Back to previous position",
     browserSubtitle: "Outlook-like public browser",
     languageLabel: "Interface language",
     languageHint: "Switches UI, filters, and tags. Notice titles and summaries stay in their original language.",
@@ -208,7 +211,7 @@ function initialLang() {
   return normalizeLang(params.get("lang") || stored || browserLang);
 }
 
-const state = { events: [], selectedId: null, topic: "all", forecastMode: false, lang: initialLang() };
+const state = { events: [], selectedId: null, topic: "all", forecastMode: false, lang: initialLang(), returnScrollY: null };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[c]));
 let controlsBound = false;
@@ -516,10 +519,15 @@ function resetFilters() {
   state.topic = "all";
   state.forecastMode = false;
   state.selectedId = null;
+  state.returnScrollY = null;
   $("forecastBtn").classList.remove("isActive");
   updateTopicButtons();
   updateUrl();
   render({ resetReading: true });
+}
+
+function isMobileLayout() {
+  return window.matchMedia("(max-width: 720px)").matches;
 }
 
 function resetReadingPosition(shouldBringIntoView = false) {
@@ -535,10 +543,21 @@ function resetReadingPosition(shouldBringIntoView = false) {
   }
 }
 
+function returnToListPosition() {
+  const target = Number.isFinite(state.returnScrollY) ? state.returnScrollY : 0;
+  state.returnScrollY = null;
+  document.querySelector("[data-return-list]")?.remove();
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: Math.max(0, target), behavior: prefersReducedMotion ? "auto" : "smooth" });
+}
+
 function bindControls() {
   if (controlsBound) return;
   controlsBound = true;
   $("resetBtn").addEventListener("click", resetFilters);
+  $("readingPane").addEventListener("click", (event) => {
+    if (event.target.closest("[data-return-list]")) returnToListPosition();
+  });
   $("topicList").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-topic]");
     if (!button) return;
@@ -618,6 +637,7 @@ function render(options = {}) {
   $("cards").onclick = (event) => {
     const card = event.target.closest(".card[data-id]");
     if (!card) return;
+    state.returnScrollY = isMobileLayout() ? window.scrollY : null;
     state.selectedId = card.dataset.id;
     render({ resetReading: true, bringReadingIntoView: true });
   };
@@ -638,6 +658,7 @@ function renderReading(event) {
     ? `<div class="links">${publicLinks.map((u) => `<a href="${esc(u)}" target="_blank" rel="noreferrer">${esc(u)}</a>`).join("")}</div>`
     : esc(t("noPublicLinks"));
   $("readingPane").innerHTML = `
+    ${state.returnScrollY !== null ? `<button class="returnButton" type="button" data-return-list>${esc(t("returnToList"))}</button>` : ""}
     <h2>${esc(event.title)}</h2>
     <p class="summary">${esc(displaySummary(event))}</p>
     <dl class="detailGrid">

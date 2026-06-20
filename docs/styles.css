@@ -35,6 +35,8 @@ h1, h2, h3, p { margin: 0; }
 .readingPane { min-width: 0; padding: 28px 34px; overflow: auto; background: #fbfcff; }
 .readingPane.isFocused { animation: readingFocus 1600ms ease-out; }
 @keyframes readingFocus { 0% { box-shadow: inset 4px 0 0 #2457a7; background: #f3f7ff; } 70% { box-shadow: inset 4px 0 0 #2457a7; background: #f3f7ff; } 100% { box-shadow: inset 0 0 0 transparent; background: #fbfcff; } }
+.returnButton { display: none; margin: 0 0 14px; min-height: 36px; border: 1px solid #c7d4e7; border-radius: 6px; background: #e8f0fb; color: #163f77; font: inherit; font-size: 13px; font-weight: 650; cursor: pointer; }
+.returnButton:hover { background: #dbe9fb; border-color: #9db9df; }
 .readingPane h2 { font-size: 26px; line-height: 1.2; margin-bottom: 12px; }
 .summary { color: #344055; line-height: 1.7; margin-bottom: 18px; }
 .detailGrid { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px 16px; border-top: 1px solid #dfe6f1; border-bottom: 1px solid #dfe6f1; padding: 16px 0; margin: 18px 0; }
@@ -52,4 +54,5 @@ h1, h2, h3, p { margin: 0; }
   .sidebar { border-right: 0; border-bottom: 1px solid #d9e1ef; }
   .messageList { border-right: 0; }
   .readingPane { padding: 22px 18px; }
+  .returnButton { display: inline-flex; align-items: center; justify-content: center; }
 }
