@@ -4,38 +4,44 @@
 
 ## 常见月份
 
-06月(6), 05月(6), 01月(5), 07月(4), 04月(3), 02月(3)
+06月(20), 05月(20), 01月(14), 02月(12), 04月(11), 07月(11)
 
 ## 事件卡
 
 | 月份 | 类别 | 部门 | 事件 | 行动 |
 | --- | --- | --- | --- | --- |
+| 02月 | 學術活動 | OSA / 学生事务 | 【Reminder】【28 February (WED) Lunchtime Seminar Series by Family and Child Development Cluster of CIEBPR, HKSYU】 | 注意截止日期/盡快提交 |
+| 03月 | 學術活動 | OSA Career Services / 职业发展 | Request for Organizing a Visit to Cyberport Career Fair 2025 | 關注資訊更新 |
 | 06月 | 考試與評估 | OSA / 学生事务 | 第一屆學生專題獎現已接受申請（截止日期為2023年6月10日）(Please scroll down for the English version.) | 注意截止日期/盡快提交 |
 | 06月 | 考試與評估 | OSA / 学生事务 | 誠邀學生提名老師參與第一屆教學卓越獎（截止日期2023年6月10日）(Please scroll down for the English version.)) | 注意截止日期/盡快提交 |
+| 11月 | 學生事務與校園生活 | OSA / 学生事务 | Invitation to the Library Management and Development Committee (LMDC) Student Representative Briefing Session | 需要上傳/提交作業 |
+| 01月 | 課程與教學 | OSA Career Services / 职业发展 | [Career Services] Career News 26/1 - Opportunities need your attention! | 注意截止日期/盡快提交 |
+| 02月 | 學生事務與校園生活 | HKSYU / 其他公开学校事项 | 关于百仁盆菜宴的问题 | 關注資訊更新 |
+| 03月 | 學術活動 | OSA Career Services / 职业发展 | Thank You for Hosting Our Visit to Cyberport Career Fair 2025 | 需要出席/參加活動 |
+| 03月 | 學生事務與校園生活 | OSA Career Services / 职业发展 | 回复: Career Advisory Services Appointment Form | 注意截止日期/盡快提交 |
 | 04月 | 考試與評估 | OSA / 学生事务 | Jour260 Team Project Proposal | 關注資訊更新 |
+| 04月 | 學術活動 | OSA / 学生事务 | 【Reminder】【26 April (WED) Lunchtime Seminar Series by Family and Child Development Cluster of CIEBPR, HKSYU】 | 注意截止日期/盡快提交 |
+| 05月 | 學術活動 | OSA / 学生事务 | [5 June 2023] Outstanding Interdisciplinary Research Proposal Award Presentation & Ceremony | 關注資訊更新 |
+| 05月 | 學術活動 | OSA / 学生事务 | [Reminder][5 June 2023] Outstanding Interdisciplinary Research Proposal Award Presentation & Ceremony | 注意截止日期/盡快提交 |
 | 06月 | 考試與評估 | OSA / 学生事务 | 2024/2025 Student Project Award: Call for application (Deadline: 27th June) | 注意截止日期/盡快提交 |
+| 06月 | 學生事務與校園生活 | HKSYU / 其他公开学校事项 | Reply: Inquiry about the Establishment of ADS Student Union | 關注資訊更新 |
+| 06月 | 學生事務與校園生活 | CSC / Moodle / WEBSIMS | Technical Issue Report: Invalid SSL Certificate for sims.hksyu.edu & websims3.hksyu. | 關注資訊更新 |
+| 06月 | 考試與評估 | OSA / 学生事务 | 誠邀學生提名老師參與第一屆教學卓越獎（截止日期2023年6月10日）(Please scroll down for the English version.) | 注意截止日期/盡快提交 |
 | 07月 | 考試與評估 | OSA / 学生事务 | 2023/2024 Student Project Award: Call for application **Deadline extended to 19th July 2024** | 注意截止日期/盡快提交 |
+| 07月 | 課程與教學 | OSA / 学生事务 | 2023/2024 Teaching Excellence Award: Call for nomination from students **Deadline extended to 19th July 2024** | 注意截止日期/盡快提交 |
+| 07月 | 學生事務與校園生活 | HKSYU / 其他公开学校事项 | 有關2024-2025自選同住室友 | 注意截止日期/盡快提交 |
+| 09月 | 學術活動 | OSA Career Services / 职业发展 | [Career Services] Career News 20/9 - Opportunities need your attention! | 注意截止日期/盡快提交 |
 | 09月 | 考試與評估 | OSA / 学生事务 | [Final Call] Recruitment Talk - Administrative Officer & Executive Officer II | 注意截止日期/盡快提交 |
+| 09月 | 課程與教學 | OSA Career Services / 职业发展 | 教學新「視」代實習計劃 | 注意截止日期/盡快提交 |
+| 10月 | 課程與教學 | OSA Career Services / 职业发展 | Undergraduate Students: Credit-bearing Overseas Internship - Overseas Working Experience Sharing | 關注資訊更新 |
+| 10月 | 學術活動 | OSA Career Services / 职业发展 | [Career Services] Career News 4/10 - Opportunities need your attention! | 注意截止日期/盡快提交 |
+| 11月 | 考試與評估 | OSA / 学生事务 | <Final Call> Talent Development Scholarship & Endeavour Scholarship 2025/26 | 注意截止日期/盡快提交 |
+| 11月 | 學生事務與校園生活 | HKSYU / 其他公开学校事项 | Change the Consultation time | 關注資訊更新 |
+| 11月 | 課程與教學 | OSA / 学生事务 | F25-MDIT320.01 VR/AR APP DEVELOPMENT (UNREAL 2) content change | 需要上傳/提交作業 |
+| 11月 | 學生事務與校園生活 | HKSYU / 其他公开学校事项 | Here is my Checklist | 關注資訊更新 |
+| 11月 | 學生事務與校園生活 | OSA / 学生事务 | 【立即报名】「周末拓展计划」— 香港法律好「普通」？ (11月23日) | 注意截止日期/盡快提交 |
+| 01月 | 課程與教學 | OSA / 学生事务 | "Building AI Knowledge and Skills for Curriculum Development" Programme (City University of Hong Kong) - Dissemination of Project Outcomes | 關注資訊更新 |
+| 01月 | 課程與教學 | OSA / 学生事务 | "Walking Glad" at Braemar Hill | 注意截止日期/盡快提交 |
 | 01月 | 考試與評估 | OSA / 学生事务 | <Final Round Application> Reaching Out Award 2024/25 | 注意截止日期/盡快提交 |
 | 01月 | 考試與評估 | OSA / 学生事务 | <Reminder> Reaching Out Award 2023/24 | 注意截止日期/盡快提交 |
-| 01月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] Education & Careers Expo 2024 (25-28/1) | 注意截止日期/盡快提交 |
-| 01月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] OCBC 2025 Summer Internship Programme | 注意截止日期/盡快提交 |
-| 01月 | 考試與評估 | OSA Career Services / 职业发展 | [尚餘少量名額] Understanding Work Styles and Your Career with the MBTI® 工作坊 | 注意截止日期/盡快提交 |
-| 02月 | 考試與評估 | OSA Career Services / 职业发展 | [Career Fair 2024] 職業展覽2024 網站正式啟動 及 重要資訊 ! | 關注資訊更新 |
-| 02月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] Create Your Lane: Careers, Startups, and the Power of Slash (6/3) | 注意截止日期/盡快提交 |
-| 02月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] PSSIP 2025 - Marine Department [海事處] | 注意截止日期/盡快提交 |
-| 04月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] PSSIP 2023 - EDB, EPD, EEB (10 Apr) | 注意截止日期/盡快提交 |
-| 04月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] PSSIP 2023 - Transport Department (12 Apr) | 注意截止日期/盡快提交 |
-| 05月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] PSSIP 2023 - Hong Kong Police Force [香港警務處] | 注意截止日期/盡快提交 |
-| 05月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] PSSIP 2023 - LCSD [康文署], HKPF [香港警務處] | 注意截止日期/盡快提交 |
-| 05月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] PSSIP 2023 - Police Dog Unit, HKPF [香港警務處] | 注意截止日期/盡快提交 |
-| 05月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] PSSIP 2023 -RVD [差餉物業估價署], Hongkong Post [香港郵政] | 注意截止日期/盡快提交 |
-| 05月 | 考試與評估 | OSA / 学生事务 | 第一屆學生專題獎現已接受申請（截止日期為2023年6月10日） | 注意截止日期/盡快提交 |
-| 05月 | 考試與評估 | OSA / 学生事务 | 誠邀學生提名老師參與第一屆教學卓越獎（截止日期2023年6月10日） | 注意截止日期/盡快提交 |
-| 06月 | 考試與評估 | OSA / 学生事务 | 2023/2024 Student Project Award: Call for application (Deadline This Friday, 21st June) | 注意截止日期/盡快提交 |
-| 06月 | 考試與評估 | OSA / 学生事务 | 2023/2024 Student Project Award: Call for application (Deadline: Next Friday, 21st June) | 注意截止日期/盡快提交 |
-| 06月 | 考試與評估 | OSA Career Services / 职业发展 | [Final Call] PSSIP 2023 - Home Affairs Department [民政事務總署] | 注意截止日期/盡快提交 |
-| 07月 | 考試與評估 | OSA / 学生事务 | Final call for application - 2023/2024 Student Project Award | 注意截止日期/盡快提交 |
-| 07月 | 考試與評估 | OSA / 学生事务 | Final call for nomination from students - 2023/2024 Teaching Excellence Award | 注意截止日期/盡快提交 |
-| 07月 | 考試與評估 | OSA Career Services / 职业发展 | [Career Services] Career News 11/7 - Opportunities need your attention! | 注意截止日期/盡快提交 |
-| 12月 | 考試與評估 | OSA / 学生事务 | <Scholarship Deadline> TDS, ROA and EDS 2022/23 | 注意截止日期/盡快提交 |
+| 01月 | 課程與教學 | OSA / 学生事务 | The 33rd HKSYU Athletic Meet (athletes and student helper enrolment) | 注意截止日期/盡快提交 |

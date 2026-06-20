@@ -3,7 +3,7 @@
 这是一个由个人大学邮箱派生出的 HKSYU 学习生活知识库。它面向后来者阅读、校正和检索，也为 AI/RAG 系统提供低风险结构化语料。
 
 - 覆盖范围：约 2022-2025
-- 当前公开事件卡：319
+- 当前公开事件卡：834
 - 公开形式：主题指南、年月时间线、FAQ、事件卡和统计表
 - 浏览入口：GitHub Markdown 与 GitHub Pages 三栏浏览器
 - 项目状态：非官方、社区维护、由邮件资料匿名化和知识化后生成
@@ -15,6 +15,11 @@
 - [常见问题](knowledge/faq/)
 - [事件卡数据](data/events.public.jsonl)
 - [GitHub Pages 浏览器](docs/)
+
+## License
+
+- Code: MIT License
+- Knowledge content and public event data: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 ## 不包含什么
 
