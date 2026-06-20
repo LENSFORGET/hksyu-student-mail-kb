@@ -3,7 +3,9 @@ html, body { margin: 0; min-height: 100%; font-family: "Segoe UI", "Microsoft Ya
 .appShell { min-height: 100vh; display: grid; grid-template-columns: 280px minmax(360px, 460px) minmax(0, 1fr); }
 .sidebar { background: #f7f9fd; border-right: 1px solid #d9e1ef; padding: 18px 14px; overflow: auto; }
 .brand { display: flex; gap: 10px; align-items: center; margin-bottom: 22px; }
-.mark { width: 36px; height: 36px; border-radius: 8px; display: grid; place-items: center; background: #2457a7; color: white; font-weight: 700; }
+.mark { width: 36px; height: 36px; border: 0; border-radius: 8px; display: grid; place-items: center; background: #2457a7; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+.mark:hover { background: #1d4a91; }
+.mark:focus-visible { outline: 2px solid #8ab4f8; outline-offset: 2px; }
 h1, h2, h3, p { margin: 0; }
 .brand h1 { font-size: 16px; line-height: 1.2; }
 .brand p, .listHeader p, .meta { color: #69758a; font-size: 12px; }

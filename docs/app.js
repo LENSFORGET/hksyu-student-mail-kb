@@ -8,6 +8,7 @@ const I18N = {
     topicAria: "主题",
     listAria: "事件卡列表",
     readingAria: "阅读窗格",
+    resetAria: "重置筛选",
     browserSubtitle: "Outlook-like public browser",
     languageLabel: "界面语言",
     languageHint: "切换界面、筛选和标签语言；通知标题与摘要保留原文。",
@@ -60,6 +61,7 @@ const I18N = {
     topicAria: "主題",
     listAria: "事件卡列表",
     readingAria: "閱讀窗格",
+    resetAria: "重置篩選",
     browserSubtitle: "Outlook-like public browser",
     languageLabel: "介面語言",
     languageHint: "切換介面、篩選和標籤語言；通知標題與摘要保留原文。",
@@ -112,6 +114,7 @@ const I18N = {
     topicAria: "Topics",
     listAria: "Event card list",
     readingAria: "Reading pane",
+    resetAria: "Reset filters",
     browserSubtitle: "Outlook-like public browser",
     languageLabel: "Interface language",
     languageHint: "Switches UI, filters, and tags. Notice titles and summaries stay in their original language.",
@@ -360,6 +363,9 @@ function applyLanguage() {
   document.querySelectorAll("[data-i18n-aria]").forEach((node) => {
     node.setAttribute("aria-label", t(node.dataset.i18nAria));
   });
+  document.querySelectorAll("[data-i18n-title]").forEach((node) => {
+    node.setAttribute("title", t(node.dataset.i18nTitle));
+  });
   $("languageSelect").value = state.lang;
   $("resultMeta").textContent = t("loadingText");
 }
@@ -498,14 +504,33 @@ function buildFilters() {
   $("topicList").innerHTML = topics.map((topic) => `<button class="folderButton ${topic === state.topic ? "isActive" : ""}" data-topic="${esc(topic)}">${esc(topicLabel(topic))}</button>`).join("");
 }
 
+function updateTopicButtons() {
+  document.querySelectorAll(".folderButton").forEach((node) => node.classList.toggle("isActive", node.dataset.topic === state.topic));
+}
+
+function resetFilters() {
+  $("searchInput").value = "";
+  ["yearFilter", "monthFilter", "categoryFilter", "departmentFilter"].forEach((id) => {
+    if (Array.from($(id).options).some((option) => option.value === "all")) $(id).value = "all";
+  });
+  state.topic = "all";
+  state.forecastMode = false;
+  state.selectedId = null;
+  $("forecastBtn").classList.remove("isActive");
+  updateTopicButtons();
+  updateUrl();
+  render();
+}
+
 function bindControls() {
   if (controlsBound) return;
   controlsBound = true;
+  $("resetBtn").addEventListener("click", resetFilters);
   $("topicList").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-topic]");
     if (!button) return;
     state.topic = button.dataset.topic;
-    document.querySelectorAll(".folderButton").forEach((node) => node.classList.toggle("isActive", node.dataset.topic === state.topic));
+    updateTopicButtons();
     render();
   });
   ["searchInput", "yearFilter", "monthFilter", "categoryFilter", "departmentFilter"].forEach((id) => $(id).addEventListener("input", render));
