@@ -8,40 +8,48 @@
   </head>
   <body>
     <main class="appShell">
-      <aside class="sidebar" aria-label="导航">
+      <aside class="sidebar" aria-label="导航" data-i18n-aria="navAria">
         <div class="brand">
           <div class="mark">HK</div>
           <div>
             <h1>HKSYU Mail KB</h1>
-            <p>Outlook-like public browser</p>
+            <p data-i18n="browserSubtitle">Outlook-like public browser</p>
           </div>
         </div>
-        <label class="searchLabel" for="searchInput">搜索</label>
-        <input id="searchInput" class="search" type="search" placeholder="Registry, Moodle, Career..." />
-        <div class="filterGroup">
-          <label>年份<select id="yearFilter"></select></label>
-          <label>月份<select id="monthFilter"></select></label>
-          <label>类别<select id="categoryFilter"></select></label>
-          <label>部门<select id="departmentFilter"></select></label>
+        <div class="languagePanel" aria-label="语言" data-i18n-aria="languageAria">
+          <span data-i18n="languageLabel">语言</span>
+          <div class="languageSwitch">
+            <button class="langButton" type="button" data-lang="zh-Hans">简</button>
+            <button class="langButton" type="button" data-lang="zh-Hant">繁</button>
+            <button class="langButton" type="button" data-lang="en">EN</button>
+          </div>
         </div>
-        <button id="forecastBtn" class="forecastButton" type="button">未来一个月</button>
-        <p class="forecastHint" id="forecastHint">按今天日期推算接下来一个月可能遇到的 HKSYU 事项。</p>
-        <nav class="folderList" id="topicList" aria-label="主题"></nav>
+        <label class="searchLabel" for="searchInput" data-i18n="searchLabel">搜索</label>
+        <input id="searchInput" class="search" type="search" placeholder="Registry, Moodle, Career..." data-i18n-placeholder="searchPlaceholder" />
+        <div class="filterGroup">
+          <label><span data-i18n="yearLabel">年份</span><select id="yearFilter"></select></label>
+          <label><span data-i18n="monthLabel">月份</span><select id="monthFilter"></select></label>
+          <label><span data-i18n="categoryLabel">类别</span><select id="categoryFilter"></select></label>
+          <label><span data-i18n="departmentLabel">部门</span><select id="departmentFilter"></select></label>
+        </div>
+        <button id="forecastBtn" class="forecastButton" type="button" data-i18n="forecastButton">未来一个月</button>
+        <p class="forecastHint" id="forecastHint" data-i18n="forecastHintDefault">按今天日期推算接下来一个月可能遇到的 HKSYU 事项。</p>
+        <nav class="folderList" id="topicList" aria-label="主题" data-i18n-aria="topicAria"></nav>
       </aside>
-      <section class="messageList" aria-label="事件卡列表">
+      <section class="messageList" aria-label="事件卡列表" data-i18n-aria="listAria">
         <header class="listHeader">
           <div>
-            <h2>事件卡</h2>
+            <h2 data-i18n="cardsTitle">事件卡</h2>
             <p id="resultMeta">Loading...</p>
           </div>
           <a class="repoLink" href="https://github.com/LENSFORGET/hksyu-student-mail-kb">GitHub</a>
         </header>
         <div id="cards" class="cards"></div>
       </section>
-      <article class="readingPane" id="readingPane" aria-label="阅读窗格">
+      <article class="readingPane" id="readingPane" aria-label="阅读窗格" data-i18n-aria="readingAria">
         <div class="emptyState">
-          <h2>选择一张事件卡</h2>
-          <p>左侧筛选，中间选择，右侧阅读。公开版只展示匿名化后的知识摘要。</p>
+          <h2 data-i18n="emptyTitle">选择一张事件卡</h2>
+          <p data-i18n="emptyText">左侧筛选，中间选择，右侧阅读。公开版只展示匿名化后的知识摘要。</p>
         </div>
       </article>
     </main>
