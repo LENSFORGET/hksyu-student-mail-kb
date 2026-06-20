@@ -3,7 +3,7 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[c]));
 
 async function loadEvents() {
-  const res = await fetch("../data/events.public.jsonl");
+  const res = await fetch("./data/events.public.jsonl");
   const text = await res.text();
   state.events = text.trim().split(/\n+/).filter(Boolean).map((line) => JSON.parse(line));
   buildFilters();
