@@ -18,8 +18,7 @@
 
 ## License
 
-- Code: MIT License
-- Knowledge content and public event data: Creative Commons Attribution 4.0 International (CC BY 4.0)
+MIT License
 
 ## 不包含什么
 
