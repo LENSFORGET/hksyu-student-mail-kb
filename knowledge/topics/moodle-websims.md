@@ -10,6 +10,7 @@
 
 | 月份 | 类别 | 部门 | 事件 | 行动 |
 | --- | --- | --- | --- | --- |
+| 06月 | 課程與教學 | CSC / Moodle / WEBSIMS | HKSYU Moodle: forum digest | 需要上傳/提交作業 |
 | 05月 | 課程與教學 | CSC / Moodle / WEBSIMS | HKSYU Moodle: forum digest | 需要上傳/提交作業 |
 | 09月 | 課程與教學 | CSC / Moodle / WEBSIMS | F22-ADS100.01: Intro to DS - Wk 2 - Teaching Materials | 關注資訊更新 |
 | 09月 | 考試與評估 | CSC / Moodle / WEBSIMS | Beware of Scam / Phishing Email | 需要留意系統/服務變更 |
@@ -44,4 +45,3 @@
 | 03月 | 課程與教學 | CSC / Moodle / WEBSIMS | W23-CHI102-ALL: W23 CHI102 大一國文問卷調查 | 關注資訊更新 |
 | 03月 | 課程與教學 | CSC / Moodle / WEBSIMS | W23-CHI102-ALL: 誠邀參與W23大一國文學術週講座 | 需要出席/參加活動 |
 | 03月 | 課程與教學 | CSC / Moodle / WEBSIMS | W23-CHI102-ALL: ［溫馨提示］誠邀參與W23大一國文學術週講座 | 需要出席/參加活動 |
-| 03月 | 課程與教學 | CSC / Moodle / WEBSIMS | W23-ENG112.06,08,13: Consultation in Week 9 | 需要上傳/提交作業 |
